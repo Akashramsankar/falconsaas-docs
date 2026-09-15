@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · Sprint Capacity Planning &amp; Forecast for Jira Cloud</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="index.html">Sprint Capacity Planning &amp; Forecast</a>
+  <nav><a href="docs.html">Docs</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
+</div></header>
+
+<main class="wrap">
+<h1>Privacy Policy</h1>
+<p class="meta">Effective 15 September 2026 · Applies to <strong>Sprint Capacity Planning &amp; Forecast for Jira Cloud</strong> (the "App")</p>
+
+<div class="callout">
+  <strong>The short version.</strong> The App runs entirely inside Atlassian's infrastructure. It reads your Jira work items with your own permissions, stores only its own planning configuration in Atlassian-hosted storage, and sends nothing to anyone else. There are no third-party servers, no analytics, no advertising, and no AI services.
+</div>
+
+<h2>1. Who is responsible</h2>
+<p>The App is developed and published by <strong>Akash Ram</strong>, an individual developer, who is the controller of the data described in this policy. Contact: <a href="mailto:support@falconsaas.online">support@falconsaas.online</a>.</p>
+<p>Atlassian Pty Ltd hosts the App on its Forge platform and processes data on the developer's behalf as a sub-processor. Atlassian's own handling of your Jira data is governed by the <a href="https://www.atlassian.com/legal/privacy-policy">Atlassian Privacy Policy</a>.</p>
+
+<h2>2. What the App reads from Jira</h2>
+<p>Every call the App makes to Jira is made <strong>as the signed-in user</strong>, with that user's own permissions. The App cannot see anything the person using it could not already see in Jira.</p>
+<p>To plan and monitor a sprint, the App reads, for the project and board you select:</p>
+<table>
+  <tr><th>Data</th><th>Why</th></tr>
+  <tr><td>Work items: key, summary, status, assignee, estimate, sprint, and change history</td><td>To calculate committed work, remaining work, and what was completed in each sprint</td></tr>
+  <tr><td>Boards, sprints, sprint dates and goals</td><td>To know which sprint is being planned and how long it runs</td></tr>
+  <tr><td>Users assignable to the project: display name, Atlassian account ID, avatar</td><td>To build the team roster in setup and show who holds what</td></tr>
+  <tr><td>Custom field definitions</td><td>To find which field holds story points on your site</td></tr>
+  <tr><td>Project workflow statuses</td><td>To map board columns to real transitions</td></tr>
+</table>
+<p>This data is read when a page is opened, used to draw that page, and not retained by the App except as described in section 3.</p>
+
+<h2>3. What the App stores</h2>
+<p>The App stores its configuration in <strong>Atlassian Forge hosted storage</strong>, scoped to your Jira site and project. Nothing is stored anywhere else. Per project, this is:</p>
+<table>
+  <tr><th>Stored</th><th>Contents</th></tr>
+  <tr><td>Setup choices</td><td>Selected board ID, story-point field ID, date setup was completed</td></tr>
+  <tr><td>Team roster</td><td>For each team member: Atlassian account ID, display name, hours per day, focus factor, allocation percentage, and any time off entered</td></tr>
+  <tr><td>Holidays and settings</td><td>Working days, holiday dates, planning mode, thresholds</td></tr>
+  <tr><td>Sprint metadata</td><td>Goal, theme, release and notes entered for a sprint</td></tr>
+  <tr><td>Sprint baselines</td><td>A snapshot at sprint start of each work item's key, assignee ID and estimate. <em>No summaries or descriptions are stored.</em></td></tr>
+  <tr><td>Sprint history</td><td>For each completed sprint: totals committed and completed, scope added and removed, and <strong>per team member, the work committed, completed, and their capacity</strong> for that sprint</td></tr>
+  <tr><td>Audit log</td><td>The last 100 configuration actions with timestamps. The acting user is <em>not</em> recorded.</td></tr>
+</table>
+
+<div class="callout warn">
+  <strong>About per-person history.</strong> The App's forecast works by learning how much each person has completed in past sprints, so completed sprints are stored per team member. This is planning data about work assignment, not an evaluation of anyone — but it is information about identifiable people, and administrators should treat it accordingly. It is visible only to users who can open the App in that project, and it is deleted with everything else when the App is uninstalled.
+</div>
+
+<h2>4. What the App does not do</h2>
+<ul>
+  <li>It does <strong>not</strong> send any data to servers outside Atlassian. The App has no backend of its own.</li>
+  <li>It does <strong>not</strong> use analytics, tracking, cookies, or advertising.</li>
+  <li>It does <strong>not</strong> use any artificial-intelligence or machine-learning service. Every number it shows is arithmetic on the data above.</li>
+  <li>It does <strong>not</strong> store Jira credentials, tokens, or passwords.</li>
+  <li>It does <strong>not</strong> sell, share, or disclose your data to anyone.</li>
+</ul>
+<p>The only external requests the App's page makes are to load team avatars, which are Atlassian's own images served from Atlassian and Gravatar domains.</p>
+
+<h2>5. Where data lives</h2>
+<p>All storage is Atlassian-hosted and follows the data residency of your Jira site. If your site is pinned to a region, the App's data stays in that region. The App is designed to meet Atlassian's <a href="https://developer.atlassian.com/platform/marketplace/runs-on-atlassian/">Runs on Atlassian</a> criteria: Atlassian-only compute and storage, no external data egress.</p>
+
+<h2>6. How long data is kept</h2>
+<ul>
+  <li><strong>While installed:</strong> configuration is kept for as long as the App is installed on your site. The audit log keeps only the most recent 100 entries.</li>
+  <li><strong>After uninstall:</strong> Atlassian soft-deletes the App's storage immediately and permanently deletes it <strong>28 days</strong> after uninstallation. During the first 21 days a site administrator can ask, via the developer, for the data to be restored to a fresh installation.</li>
+  <li><strong>Trial or subscription lapse:</strong> data is retained while the App remains installed, even if it is unlicensed. Nothing is deleted on licence expiry.</li>
+</ul>
+
+<h2>7. Your rights and how to delete data</h2>
+<p>A Jira site administrator can delete all of the App's data for a site by uninstalling it from <em>Apps › Manage apps</em>. Individual team members can be removed from the roster in the App's setup, which removes their availability settings; their entries in stored sprint history can be cleared by an administrator on request.</p>
+<p>If you are in a jurisdiction that grants you rights to access, correct, or erase personal data, contact <a href="mailto:support@falconsaas.online">support@falconsaas.online</a>. Because the developer has no independent copy of your data, most requests will be fulfilled by guiding your site administrator through the steps above.</p>
+
+<h2>8. Security</h2>
+<p>The App runs in Atlassian's Forge sandbox, which enforces the permission scopes declared in the App's manifest and isolates the App from other apps and from the open internet. It acts only with the permissions of the signed-in user. The developer does not have access to your Jira site or to the App's stored data.</p>
+
+<h2>9. Children</h2>
+<p>The App is a business tool for Jira Cloud and is not directed at children.</p>
+
+<h2>10. Changes to this policy</h2>
+<p>If the App's data handling changes — for example, if a future version adds an external service — this policy will be updated before that version is released, and the change will appear in the App's release notes on the Atlassian Marketplace.</p>
+
+<h2>11. Contact</h2>
+<p>Akash Ram · <a href="mailto:support@falconsaas.online">support@falconsaas.online</a></p>
+</main>
+
+<footer><div class="wrap">© 2026 Akash Ram · Not affiliated with Atlassian. Jira is a trademark of Atlassian Pty Ltd.</div></footer>
+</body>
+</html>

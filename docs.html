@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation · Sprint Capacity Planning &amp; Forecast for Jira Cloud</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="index.html">Sprint Capacity Planning &amp; Forecast</a>
+  <nav><a href="docs.html" aria-current="page">Docs</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
+</div></header>
+
+<main class="wrap">
+<h1>Documentation</h1>
+<p class="lede">Realistic sprint commitment, live risk detection, and a per-person forecast — from the data already in your Jira board.</p>
+
+<h2>What it does</h2>
+<p>The App answers three questions a Scrum board on its own cannot:</p>
+<ul>
+  <li><strong>How much can this team really take on?</strong> Effective capacity from sprint dates, working days, hours per day, time off, holidays, focus factor and allocation — per person, not a single team number.</li>
+  <li><strong>Is the running sprint in trouble?</strong> A 0–100 health score broken into pace, capacity, scope, blockers, execution and data quality, with the required pace to finish and a spillover range with confidence.</li>
+  <li><strong>Whose work will not land?</strong> A per-person forecast that samples each member's own past throughput against the hours they have left, and names the items most likely to spill.</li>
+</ul>
+<p>Every figure is arithmetic on your Jira data and the availability your team enters. There is no AI, and every number can be traced back to what produced it.</p>
+
+<h2>Installation</h2>
+<ol class="steps">
+  <li>Install from the Atlassian Marketplace, or from <em>Apps › Find new apps</em> inside Jira. A Jira site administrator must do this.</li>
+  <li>Open any Scrum project. <strong>Sprint Capacity Planning &amp; Forecast</strong> appears in the project sidebar.</li>
+  <li>The first time it opens in a project, the setup wizard runs. It takes about two minutes.</li>
+</ol>
+<div class="callout">
+  The App plans one team's sprint at a time and needs a project's board. It also appears under <em>Apps</em> in the top navigation, but that global page has no project to plan against and will direct you to open a project.
+</div>
+
+<h2>Setup wizard</h2>
+<p>Installing the App tells Jira nothing about how your team plans, so four questions are asked once per project. <em>Setup</em> in the top bar reopens the wizard at any time.</p>
+<ol class="steps">
+  <li><strong>Board.</strong> Which Scrum board holds this project's sprints. Jira gives the App a project but never a board, and without one there are no real sprints to read.</li>
+  <li><strong>Story points.</strong> Which numeric custom field holds them. The field ID differs on every Jira site. Until chosen, the App falls back to the first numeric custom field it finds — which can just as easily be business value, so choose it.</li>
+  <li><strong>Team.</strong> Everyone Jira reports as assignable, each assumed full-time at 8 hours a day with a 0.7 focus factor. Correct part-time and off-team people here before any capacity number is drawn from them.</li>
+  <li><strong>Ready.</strong> A plain statement of the cold start — see below.</li>
+</ol>
+
+<h2>The cold start</h2>
+<p>With no completed sprints, the App has nothing to learn from. Until one sprint closes:</p>
+<ul>
+  <li>Team capacity stands in as whatever is already committed, so utilisation reads near 100% regardless of what the team took on.</li>
+  <li>The per-person forecast stays unavailable. It needs at least one finished sprint per person to sample from.</li>
+</ul>
+<p>The App says this on screen rather than showing numbers that look like findings. Both become real the first time a sprint is completed from the App's toolbar.</p>
+
+<h2>Screens</h2>
+<h3>Plan</h3>
+<p>The sprint being planned, as a board, list or per-person groups. Each person's row shows effective capacity against assigned work. Drag to reassign; edit summary, estimate, status and sprint inline; create items directly into a sprint column, the list, or a person's group. Changes are written back to Jira — nothing lives only in the App.</p>
+<h3>Monitor</h3>
+<p>The running sprint's health score and its six factors, burndown with projection, required pace, scope changes since baseline (added, removed, estimate changes, net and gross), issue-level risk flags, and ranked spillover candidates.</p>
+<h3>Forecast</h3>
+<p>Per person: probability of clearing their queue, the spillover range at P50 and P90, and which of their items are most at risk. Work is counted per item, not per point — a task is finished or it is not. What-if changes can be simulated locally before applying them to Jira.</p>
+<h3>History</h3>
+<p>Every completed sprint: committed versus completed, scope change, spillover, velocity, and predictability trend.</p>
+<h3>Admin</h3>
+<p>Team roster, availability, holidays, working days, planning mode (story points or hours), thresholds, and the audit log of configuration changes.</p>
+
+<h2>Baselines</h2>
+<p>A baseline is a snapshot of what the sprint contained when it started — the committed scope everything after is measured against. The App takes one when you start a sprint from its toolbar. If a sprint is already running when the App first sees it, the baseline is marked <strong>Late</strong>: the numbers before that moment were never captured, and the scope metrics say so. Re-baselining asks for a reason, which is recorded in the audit log.</p>
+
+<h2>Starting and completing sprints</h2>
+<p>The toolbar button follows the sprint: <strong>Start sprint</strong> while it is planned, <strong>Complete sprint</strong> once it is running.</p>
+<ul>
+  <li><strong>Start</strong> asks for name, duration, dates and goal, writes them to Jira, and takes the baseline.</li>
+  <li><strong>Complete</strong> moves unfinished work to the next sprint or the backlog, closes the sprint in Jira, and records the result as history — which is what velocity, confidence and the forecast learn from.</li>
+</ul>
+<p>Jira exposes no native start- or complete-sprint dialog to apps, so these are the App's own dialogs around the same questions and the same writes. A completed sprint cannot be reopened from the App.</p>
+
+<h2>How writes reach Jira</h2>
+<p>The App keeps no copy of your work items. Field edits go through Jira's issue API, status changes through the workflow transition that leads to the target status, and sprint moves through the Agile API — always as you, with your permissions. Edits are batched per item and flushed shortly after your last change, or immediately if you leave the page. If Jira rejects a write, a banner says the change is <em>not saved</em> rather than leaving a screen that looks right until it reloads.</p>
+
+<h2>Pricing and licensing</h2>
+<ul>
+  <li><strong>Free</strong> for Jira sites with up to 10 users.</li>
+  <li>Larger sites get a <strong>30-day trial</strong> that rolls into a paid subscription unless cancelled from <em>Apps › Manage apps</em>. The App shows a notice during the final week.</li>
+  <li>If a subscription lapses, everything stays readable but changes stop saving to Jira until it is renewed. Nothing is deleted.</li>
+</ul>
+
+<h2>Permissions</h2>
+<p>The App requests the Jira scopes needed to read boards, sprints, work items and assignable users, and to write item fields, transitions, sprint membership and sprint state — all exercised as the signed-in user. It stores its configuration in Atlassian-hosted storage and makes no requests outside Atlassian. See the <a href="privacy.html">Privacy Policy</a>.</p>
+
+<h2>Frequently asked questions</h2>
+<h3>Utilisation says 100% for every sprint.</h3>
+<p>No sprint has been completed from the App yet, so capacity is standing in as committed work. Complete one sprint from the toolbar.</p>
+<h3>The forecast says "unavailable".</h3>
+<p>Same cause. It needs a completed sprint per person to sample from.</p>
+<h3>Story points are showing the wrong numbers.</h3>
+<p>The wrong field was picked in setup, or none was. Open <em>Setup</em> and choose the field your board actually estimates with.</p>
+<h3>Someone is on the team who should not be.</h3>
+<p>The roster is everyone Jira reports as assignable. Set their allocation to 0% in Setup or Admin, or remove them from the roster.</p>
+<h3>Avatars show initials instead of pictures.</h3>
+<p>Avatar images load from Atlassian's own domains. If a corporate proxy blocks them, initials are shown instead. Nothing else is affected.</p>
+<h3>Can I use hours instead of story points?</h3>
+<p>Yes — planning mode is in Admin. Hours use Jira's <em>remaining</em> time estimate on each item, so they fall as work is logged.</p>
+
+<h2>Trying it out</h2>
+<p>To see the App with real numbers rather than the cold start, on a test project:</p>
+<ol class="steps">
+  <li>Create a Scrum project with a board and a story-points field, and a handful of estimated, assigned issues.</li>
+  <li>Open the App, run setup, and pick that board and field.</li>
+  <li>Move a few issues into a sprint on the Plan screen and press <strong>Start sprint</strong>.</li>
+  <li>Transition some issues to Done in Jira, then press <strong>Complete sprint</strong>.</li>
+  <li>History, real capacity, and the per-person forecast are now live for the next sprint.</li>
+</ol>
+</main>
+
+<footer><div class="wrap">© 2026 Akash Ram · Not affiliated with Atlassian. Jira is a trademark of Atlassian Pty Ltd.</div></footer>
+</body>
+</html>
